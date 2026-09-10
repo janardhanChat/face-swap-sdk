@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Maison Lumina | Fine Jewellery & Virtual AI Try-On Atelier</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-color: #0c0d10;
+      --card-bg: #14161b;
+      --card-border: rgba(212, 175, 55, 0.2);
+      --gold-primary: #d4af37;
+      --gold-light: #f5d76e;
+      --text-main: #f3f3f3;
+      --text-muted: #9e9ea7;
+      --accent: #e5c365;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      font-family: 'Montserrat', sans-serif;
+      line-height: 1.6;
+      padding-bottom: 80px;
+    }
+
+    /* Top Announcement Bar */
+    .announcement-bar {
+      background: linear-gradient(90deg, #1b170e 0%, #2f2716 50%, #1b170e 100%);
+      border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+      padding: 8px 16px;
+      text-align: center;
+      font-size: 12px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--gold-light);
+    }
+
+    /* Navbar */
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 48px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+      background: rgba(12, 13, 16, 0.85);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .brand-logo-container {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: #fff;
+    }
+
+    .site-logo {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 1px solid var(--gold-primary);
+    }
+
+    .brand-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26px;
+      letter-spacing: 2px;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover, .nav-links a.active {
+      color: var(--gold-primary);
+    }
+
+    .nav-actions {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .cart-badge-btn {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #fff;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 13px;
+      cursor: pointer;
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 60px 20px 40px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .hero-tag {
+      font-size: 12px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold-primary);
+      margin-bottom: 12px;
+      display: inline-block;
+      border-bottom: 1px solid var(--gold-primary);
+      padding-bottom: 4px;
+    }
+
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 52px;
+      font-weight: 400;
+      line-height: 1.15;
+      margin-bottom: 16px;
+      color: #ffffff;
+    }
+
+    .hero p {
+      font-size: 16px;
+      color: var(--text-muted);
+      max-width: 640px;
+      margin: 0 auto 30px;
+      font-weight: 300;
+    }
+
+    /* Interactive SDK Testing Toolbar */
+    .sdk-tester-panel {
+      max-width: 1100px;
+      margin: 0 auto 40px;
+      padding: 16px 24px;
+      background: rgba(212, 175, 55, 0.06);
+      border: 1px solid rgba(212, 175, 55, 0.35);
+      border-radius: 14px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .tester-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--gold-light);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .tester-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .btn-test {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(212, 175, 55, 0.4);
+      color: #fff;
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-test:hover {
+      background: rgba(212, 175, 55, 0.2);
+      border-color: var(--gold-primary);
+    }
+
+    /* Product Grid */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 34px;
+      font-weight: 400;
+      text-align: center;
+      margin-bottom: 36px;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+      gap: 32px;
+    }
+
+    .product-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s;
+    }
+
+    .product-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5), 0 0 20px rgba(212, 175, 55, 0.12);
+      border-color: rgba(212, 175, 55, 0.45);
+    }
+
+    .product-image-container {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      background: #090a0d;
+      overflow: hidden;
+    }
+
+    .product-image-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .product-card:hover .product-image-container img {
+      transform: scale(1.04);
+    }
+
+    .product-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(8px);
+      color: var(--gold-light);
+      font-size: 11px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 20px;
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      z-index: 10;
+    }
+
+    /* Thumbnail Gallery Switcher for Multi-Image Products */
+    .gallery-thumbnails {
+      display: flex;
+      gap: 8px;
+      padding: 10px 16px 0;
+    }
+
+    .gallery-thumb {
+      width: 38px;
+      height: 38px;
+      border-radius: 6px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      cursor: pointer;
+      opacity: 0.6;
+      transition: all 0.2s;
+    }
+
+    .gallery-thumb.active, .gallery-thumb:hover {
+      opacity: 1;
+      border-color: var(--gold-primary);
+    }
+
+    .gallery-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .product-info {
+      padding: 20px 20px 24px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .product-category {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--gold-primary);
+      margin-bottom: 6px;
+    }
+
+    .product-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: #ffffff;
+      margin-bottom: 8px;
+    }
+
+    .product-price {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text-main);
+      margin-bottom: 16px;
+    }
+
+    .btn-add-cart {
+      margin-top: auto;
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #fff;
+      padding: 10px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-add-cart:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: #fff;
+    }
+
+    /* Toast Notification for Events */
+    #sdk-toast {
+      position: fixed;
+      bottom: 24px;
+      left: 24px;
+      background: #14161b;
+      border: 1px solid var(--gold-primary);
+      padding: 12px 20px;
+      border-radius: 12px;
+      color: #fff;
+      font-size: 13px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 999999;
+    }
+
+    #sdk-toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="announcement-bar">
+    ✨ Complimetary Virtual AI Try-On & Worldwide Insured Express Delivery
+  </div>
+
+  <!-- Header Navigation -->
+  <header class="navbar">
+    <a href="#" class="brand-logo-container">
+      <!-- Icon/Logo (Ignored by SDK scanner heuristics) -->
+      <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=80&q=80" alt="Logo" class="site-logo logo" data-tryon="false" />
+      <span class="brand-name">MAISON LUMINA</span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="#" class="active">High Jewellery</a></li>
+      <li><a href="#">Necklaces</a></li>
+      <li><a href="#">Earrings</a></li>
+      <li><a href="#">Rings</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <button class="cart-badge-btn">Bag (0)</button>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <span class="hero-tag">High Jewellery Atelier</span>
+    <h1>Adorn Yourself with Eternal Radiance</h1>
+    <p>Experience our bespoke fine diamond and precious gemstone collections with instant AI Virtual Try-On before purchase.</p>
+  </section>
+
+  <!-- SDK Tester Controls Panel -->
+  <div class="container">
+    <div class="sdk-tester-panel">
+      <div class="tester-title">
+        <span>⚙️ SDK Developer & Testing Toolbar:</span>
+      </div>
+      <div class="tester-actions">
+        <button class="btn-test" id="btn-add-dynamic-product">➕ Inject Dynamic Product (Test MutationObserver)</button>
+        <button class="btn-test" id="btn-inspect-sdk">📊 Inspect Registered Images</button>
+        <button class="btn-test" id="btn-trigger-modal-manual">✨ Open Modal Programmatically</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Products Section -->
+  <main class="container">
+    <h2 class="section-title">Signature Collection</h2>
+
+    <div class="product-grid" id="main-product-grid">
+
+      <!-- Product 1: Solitaire Diamond Necklace (Explicit Tagging) -->
+      <article class="product-card" data-product-id="necklace-solitaire-001">
+        <div class="product-image-container">
+          <span class="product-badge">Haute Joaillerie</span>
+          <img
+            id="img-product-1"
+            src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=800&q=80"
+            alt="Solitaire Pear Diamond Pendant Necklace"
+            data-tryon="true"
+            data-product-id="necklace-solitaire-001"
+          />
+        </div>
+        <div class="product-info">
+          <span class="product-category">Necklaces</span>
+          <h3 class="product-title">L'Éternité Pear Diamond Pendant</h3>
+          <p class="product-price">$4,850</p>
+          <button class="btn-add-cart">Add to Shopping Bag</button>
+        </div>
+      </article>
+
+      <!-- Product 2: Royal Emerald Drop Earrings (Auto-Discovered) -->
+      <article class="product-card" data-product-id="earrings-emerald-002">
+        <div class="product-image-container">
+          <span class="product-badge">Bespoke</span>
+          <img
+            id="img-product-2"
+            src="https://images.unsplash.com/photo-1630019852942-f89202989a59?auto=format&fit=crop&w=800&q=80"
+            alt="Royal Colombian Emerald & Diamond Drop Earrings"
+            data-product-id="earrings-emerald-002"
+          />
+        </div>
+        <div class="product-info">
+          <span class="product-category">Earrings</span>
+          <h3 class="product-title">Royal Emerald Cascade Earrings</h3>
+          <p class="product-price">$7,200</p>
+          <button class="btn-add-cart">Add to Shopping Bag</button>
+        </div>
+      </article>
+
+      <!-- Product 3: Multi-Image Sapphire Set (Multi-Angle Gallery Demonstration) -->
+      <article class="product-card" data-product-id="sapphire-suite-003">
+        <div class="product-image-container">
+          <span class="product-badge">Suite Collection</span>
+          <img
+            id="img-product-3-main"
+            src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=800&q=80"
+            alt="Ceylon Sapphire & Brilliant Diamond Suite"
+            data-tryon="true"
+            data-product-id="sapphire-suite-003"
+          />
+        </div>
+        <!-- Thumbnail Gallery Switcher (Simulates e-commerce multi-image product view) -->
+        <div class="gallery-thumbnails">
+          <div class="gallery-thumb active" onclick="switchProductThumb('img-product-3-main', 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=800&q=80', this)">
+            <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=120&q=80" alt="Angle 1" />
+          </div>
+          <div class="gallery-thumb" onclick="switchProductThumb('img-product-3-main', 'https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?auto=format&fit=crop&w=800&q=80', this)">
+            <img src="https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?auto=format&fit=crop&w=120&q=80" alt="Angle 2" />
+          </div>
+          <div class="gallery-thumb" onclick="switchProductThumb('img-product-3-main', 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=800&q=80', this)">
+            <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=120&q=80" alt="Close-up" />
+          </div>
+        </div>
+        <div class="product-info">
+          <span class="product-category">Suite Set</span>
+          <h3 class="product-title">Imperial Ceylon Sapphire Suite</h3>
+          <p class="product-price">$9,400</p>
+          <button class="btn-add-cart">Add to Shopping Bag</button>
+        </div>
+      </article>
+
+      <!-- Product 4: 18K Gold Floral Choker (Auto-Discovered) -->
+      <article class="product-card" data-product-id="choker-gold-004">
+        <div class="product-image-container">
+          <span class="product-badge">New Arrival</span>
+          <img
+            id="img-product-4"
+            src="https://images.unsplash.com/photo-1611591475152-4c09a33a4042?auto=format&fit=crop&w=800&q=80"
+            alt="Heritage 18K Yellow Gold Floral Choker"
+            data-product-id="choker-gold-004"
+          />
+        </div>
+        <div class="product-info">
+          <span class="product-category">Chokers</span>
+          <h3 class="product-title">Heritage 18K Gold Floral Choker</h3>
+          <p class="product-price">$3,950</p>
+          <button class="btn-add-cart">Add to Shopping Bag</button>
+        </div>
+      </article>
+
+    </div>
+  </main>
+
+  <!-- SDK Toast for Visual Feedback -->
+  <div id="sdk-toast"></div>
+
+  <!-- Client-Side Demo Scripts for Interactive Testing Toolbar -->
+  <script>
+    function showToast(msg) {
+      const t = document.getElementById('sdk-toast');
+      t.innerText = msg;
+      t.classList.add('show');
+      setTimeout(() => t.classList.remove('show'), 3500);
+    }
+
+    function switchProductThumb(mainImgId, newSrc, thumbEl) {
+      const mainImg = document.getElementById(mainImgId);
+      if (mainImg) {
+        mainImg.src = newSrc;
+      }
+      thumbEl.parentElement.querySelectorAll('.gallery-thumb').forEach(el => el.classList.remove('active'));
+      thumbEl.classList.add('active');
+    }
+
+    // Test Button 1: Dynamically Inject a Product into DOM (Tests MutationObserver)
+    let dynamicCount = 0;
+    document.getElementById('btn-add-dynamic-product').addEventListener('click', () => {
+      dynamicCount++;
+      const grid = document.getElementById('main-product-grid');
+      const newCard = document.createElement('article');
+      newCard.className = 'product-card';
+      newCard.dataset.productId = `dynamic-item-${dynamicCount}`;
+      newCard.innerHTML = `
+        <div class="product-image-container">
+          <span class="product-badge">Dynamic SPA Ingestion</span>
+          <img
+            src="https://images.unsplash.com/photo-1598560917505-59a3ad559071?auto=format&fit=crop&w=800&q=80"
+            alt="Radiant Pavé Diamond Bangle #${dynamicCount}"
+            data-product-id="dynamic-item-${dynamicCount}"
+          />
+        </div>
+        <div class="product-info">
+          <span class="product-category">Bangles & Bracelets</span>
+          <h3 class="product-title">Radiant Pavé Diamond Bangle #${dynamicCount}</h3>
+          <p class="product-price">$5,100</p>
+          <button class="btn-add-cart">Add to Shopping Bag</button>
+        </div>
+      `;
+      grid.prepend(newCard);
+      showToast(`✨ Dynamic product #${dynamicCount} injected! MutationObserver will attach Try-On button.`);
+    });
+
+    // Test Button 2: Inspect SDK Image Registry
+    document.getElementById('btn-inspect-sdk').addEventListener('click', () => {
+      if (window.TryOnSDK) {
+        const images = window.TryOnSDK.getDiscoveredImages();
+        console.log('📊 [SDK Inspection] Registered Images:', images);
+        showToast(`Found ${images.length} registered images in TryOnSDK.`);
+      } else {
+        showToast('TryOnSDK not loaded yet.');
+      }
+    });
+
+    // Test Button 3: Programmatic Modal Open
+    document.getElementById('btn-trigger-modal-manual').addEventListener('click', () => {
+      const firstImg = document.getElementById('img-product-1');
+      if (window.TryOnSDK && firstImg) {
+        window.TryOnSDK.open(firstImg);
+      }
+    });
+
+    // Listen to TryOnSDK Events for demonstration
+    window.addEventListener('DOMContentLoaded', () => {
+      if (window.TryOnSDK) {
+        window.TryOnSDK.on('tryon:complete', (data) => {
+          showToast('🎉 AI Try-On generation completed!');
+        });
+        window.TryOnSDK.on('result:applied', (data) => {
+          showToast('✨ Personalized photo applied to product card!');
+        });
+      }
+    });
+  </script>
+
+  <!-- ========================================================== -->
+  <!-- MERCHANT EMBED SCRIPT: The single tag merchants include!   -->
+  <!-- ========================================================== -->
+  <script
+    src="./dist/tryon.js"
+    data-site-key="pk_test_luxury_jewels_778"
+    data-button-text="✨ Try On"
+    data-theme="gold"
+    data-debug="true">
+  </script>
+
+</body>
+</html>

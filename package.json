@@ -1,0 +1,19 @@
+{
+  "name": "swap-sdk",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "build": "esbuild src/index.ts --bundle --minify --format=iife --target=es2018 --outfile=dist/tryon.js",
+    "build:all": "esbuild src/index.ts --bundle --minify --format=iife --target=es2018 --outfile=dist/tryon.js & esbuild src/index.ts --bundle --format=iife --target=es2018 --outfile=dist/index.js",
+    "typecheck": "tsc --noEmit",
+    "watch": "esbuild src/index.ts --bundle --sourcemap --format=iife --target=es2018 --outfile=dist/tryon.js --watch"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.0",
+    "typescript": "^7.0.2"
+  }
+}
