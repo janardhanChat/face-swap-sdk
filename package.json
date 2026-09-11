@@ -7,8 +7,8 @@
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
-    "build": "esbuild src/index.ts --bundle --minify --format=iife --target=es2018 --outfile=dist/tryon.js",
-    "build:all": "esbuild src/index.ts --bundle --minify --format=iife --target=es2018 --outfile=dist/tryon.js & esbuild src/index.ts --bundle --format=iife --target=es2018 --outfile=dist/index.js",
+    "build": "esbuild src/index.ts --bundle --minify --format=iife --target=es2018 --outfile=dist/tryon.js && node -e \"const fs=require('fs'); fs.copyFileSync('test.html','dist/index.html'); fs.copyFileSync('test.html','dist/test.html');\"",
+    "build:all": "esbuild src/index.ts --bundle --minify --format=iife --target=es2018 --outfile=dist/tryon.js && esbuild src/index.ts --bundle --format=iife --target=es2018 --outfile=dist/index.js && node -e \"const fs=require('fs'); fs.copyFileSync('test.html','dist/index.html'); fs.copyFileSync('test.html','dist/test.html');\"",
     "typecheck": "tsc --noEmit",
     "watch": "esbuild src/index.ts --bundle --sourcemap --format=iife --target=es2018 --outfile=dist/tryon.js --watch"
   },
