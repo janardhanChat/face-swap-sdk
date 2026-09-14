@@ -84,6 +84,7 @@ export interface TryOnRequest {
   userImageUrl: string;
   productImageUrls: string[];
   productId: string;
+  userFile?: Blob;
 }
 
 export type JobStatus = 'queued' | 'processing' | 'completed' | 'failed';

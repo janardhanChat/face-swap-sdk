@@ -627,6 +627,7 @@ class ModalManager {
         userImageUrl: this.userPhoto.dataUrl,
         productImageUrls: imageUrls,
         productId: this.currentImageMeta.productId,
+        userFile: this.userPhoto.file,
       });
 
       // 5. Poll Job with progress callbacks

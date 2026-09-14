@@ -6,7 +6,7 @@ import { ButtonPosition, ButtonTheme, SDKConfig } from './types';
 
 const DEFAULT_CONFIG: SDKConfig = {
   siteKey: '',
-  apiUrl: 'https://api.yourcompany.com',
+  apiUrl: 'https://9rk8l0m9-8000.inc1.devtunnels.ms',
   buttonText: '✨ Try On',
   buttonPosition: 'bottom-right',
   buttonTheme: 'gold',
@@ -28,7 +28,7 @@ const DEFAULT_CONFIG: SDKConfig = {
   maxFileSizeMB: 10,
   supportedFormats: ['image/jpeg', 'image/png', 'image/webp'],
   autoScan: true,
-  mockMode: true,
+  mockMode: false,
   debug: false,
 };
 
@@ -70,7 +70,7 @@ export function extractScriptConfig(): Partial<SDKConfig> {
   if (ds.allowExplicitOnly !== undefined) config.allowExplicitOnly = ds.allowExplicitOnly === 'true';
   if (ds.maxFileSize) config.maxFileSizeMB = parseFloat(ds.maxFileSize) || DEFAULT_CONFIG.maxFileSizeMB;
   if (ds.autoScan !== undefined) config.autoScan = ds.autoScan !== 'false';
-  if (ds.mockMode !== undefined) config.mockMode = ds.mockMode !== 'false';
+  if (ds.mockMode !== undefined) config.mockMode = ds.mockMode === 'true';
   if (ds.debug !== undefined) config.debug = ds.debug === 'true';
 
   return config;
