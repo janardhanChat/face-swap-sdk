@@ -3,7 +3,7 @@
  * Entry Point & Orchestrator
  */
 
-import { attachTryOnButton, removeAllButtons, updateButtonState } from './button';
+import { attachTryOnButton, refreshAllButtons, refreshButton, removeAllButtons, updateButtonState } from './button';
 import { getConfig, initConfig, updateConfig } from './config';
 import { events } from './events';
 import { modal } from './modal';
@@ -17,7 +17,7 @@ import {
   resetScanner,
   scanDOM,
 } from './scanner';
-import { EventCallback, ProductImageMeta, SDKConfig, SDKEventMap } from './types';
+import { ButtonCustomStyle, EventCallback, ProductImageMeta, SDKConfig, SDKEventMap } from './types';
 
 // In-Page Toggle Host Map (allows shopper to toggle Original vs Personalized on the live page)
 const inPageToggleHosts = new Map<string, HTMLElement>();
@@ -262,10 +262,35 @@ export const TryOnSDK = {
   },
 
   /**
-   * Update SDK configuration
+   * Update SDK configuration and immediately refresh all live buttons
    */
   updateConfig(partial: Partial<SDKConfig>): SDKConfig {
-    return updateConfig(partial);
+    const updated = updateConfig(partial);
+    refreshAllButtons();
+    return updated;
+  },
+
+  /**
+   * Directly customize Try-On button styling in real-time
+   */
+  setButtonStyle(style: Partial<ButtonCustomStyle>): SDKConfig {
+    const updated = updateConfig({ buttonStyle: style });
+    refreshAllButtons();
+    return updated;
+  },
+
+  /**
+   * Refresh all Try-On buttons currently attached on the page
+   */
+  refreshButtons(): void {
+    refreshAllButtons();
+  },
+
+  /**
+   * Refresh a specific button by image ID
+   */
+  refreshButton(metaId: string): void {
+    refreshButton(metaId);
   },
 
   /**

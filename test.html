@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap"
     rel="stylesheet">
   <style>
     :root {
@@ -125,7 +125,7 @@
     /* Hero Section */
     .hero {
       text-align: center;
-      padding: 60px 20px 40px;
+      padding: 50px 20px 30px;
       max-width: 900px;
       margin: 0 auto;
     }
@@ -153,24 +153,344 @@
     .hero p {
       font-size: 16px;
       color: var(--text-muted);
-      max-width: 640px;
-      margin: 0 auto 30px;
+      max-width: 680px;
+      margin: 0 auto 20px;
       font-weight: 300;
+    }
+
+    /* ========================================================== */
+    /* MERCHANT BUTTON & THEME CUSTOMIZER STUDIO STYLING          */
+    /* ========================================================== */
+    .customizer-studio {
+      max-width: 1200px;
+      margin: 0 auto 40px;
+      background: linear-gradient(180deg, rgba(24, 26, 32, 0.95) 0%, rgba(18, 20, 26, 0.98) 100%);
+      border: 1px solid rgba(212, 175, 55, 0.38);
+      border-radius: 18px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 30px rgba(212, 175, 55, 0.1);
+      overflow: hidden;
+    }
+
+    .studio-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 28px;
+      background: rgba(212, 175, 55, 0.08);
+      border-bottom: 1px solid rgba(212, 175, 55, 0.25);
+    }
+
+    .studio-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .studio-title h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 24px;
+      color: #fff;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+
+    .studio-badge {
+      background: rgba(212, 175, 55, 0.2);
+      border: 1px solid var(--gold-primary);
+      color: var(--gold-light);
+      font-size: 11px;
+      font-weight: 600;
+      padding: 2px 10px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .studio-content {
+      padding: 24px 28px;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 28px;
+    }
+
+    @media (max-width: 960px) {
+      .studio-content {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .control-group {
+      margin-bottom: 20px;
+    }
+
+    .control-label {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    /* Preset Themes Grid */
+    .theme-presets-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .preset-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #e5e5e5;
+      padding: 9px 12px;
+      border-radius: 10px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s;
+    }
+
+    .preset-btn:hover {
+      background: rgba(212, 175, 55, 0.15);
+      border-color: rgba(212, 175, 55, 0.5);
+      color: #fff;
+      transform: translateY(-1px);
+    }
+
+    .preset-btn.active {
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.25) 0%, rgba(245, 215, 110, 0.3) 100%);
+      border-color: var(--gold-primary);
+      color: #fff;
+      box-shadow: 0 0 12px rgba(212, 175, 55, 0.35);
+    }
+
+    /* Positions Grid */
+    .positions-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .pos-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #bbb;
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 11px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .pos-btn:hover {
+      color: #fff;
+      border-color: var(--gold-primary);
+    }
+
+    .pos-btn.active {
+      background: var(--gold-primary);
+      color: #111;
+      border-color: var(--gold-primary);
+      font-weight: 700;
+    }
+
+    /* Color Grid */
+    .color-controls-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+
+    .color-field {
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .color-field-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+      color: #aaa;
+    }
+
+    .color-input-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .color-picker {
+      width: 28px;
+      height: 28px;
+      border-radius: 6px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      background: none;
+      cursor: pointer;
+      padding: 0;
+    }
+
+    .color-text-input {
+      flex: 1;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #fff;
+      font-family: monospace;
+      font-size: 11px;
+      padding: 4px 8px;
+      border-radius: 6px;
+      outline: none;
+    }
+
+    .color-text-input:focus {
+      border-color: var(--gold-primary);
+    }
+
+    /* Sliders & Geometry Grid */
+    .geometry-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+
+    .range-field {
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      padding: 10px 12px;
+    }
+
+    .range-field-header {
+      display: flex;
+      justify-content: space-between;
+      font-size: 11px;
+      color: #aaa;
+      margin-bottom: 6px;
+    }
+
+    .range-slider {
+      width: 100%;
+      accent-color: var(--gold-primary);
+      cursor: pointer;
+    }
+
+    .text-input-field {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #fff;
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-size: 13px;
+      outline: none;
+    }
+
+    .text-input-field:focus {
+      border-color: var(--gold-primary);
+    }
+
+    /* Code Export Box */
+    .code-export-card {
+      background: #090a0d;
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      border-radius: 14px;
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .export-tabs {
+      display: flex;
+      gap: 8px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding-bottom: 10px;
+      margin-bottom: 14px;
+    }
+
+    .tab-btn {
+      background: transparent;
+      border: none;
+      color: #888;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      padding: 4px 10px;
+      border-radius: 6px;
+      transition: all 0.2s;
+    }
+
+    .tab-btn.active {
+      background: rgba(212, 175, 55, 0.15);
+      color: var(--gold-light);
+    }
+
+    .code-preview-area {
+      flex: 1;
+      background: #050608;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 8px;
+      padding: 14px;
+      color: #7dd3fc;
+      font-family: 'Fira Code', Consolas, Monaco, monospace;
+      font-size: 11px;
+      line-height: 1.5;
+      overflow-x: auto;
+      white-space: pre;
+      margin-bottom: 14px;
+      user-select: all;
+    }
+
+    .btn-copy-code {
+      background: linear-gradient(135deg, var(--gold-primary) 0%, var(--gold-light) 100%);
+      border: none;
+      color: #111;
+      font-weight: 700;
+      padding: 10px 16px;
+      border-radius: 8px;
+      font-size: 12px;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.2s;
+    }
+
+    .btn-copy-code:hover {
+      box-shadow: 0 4px 20px rgba(212, 175, 55, 0.4);
+      transform: translateY(-1px);
     }
 
     /* Interactive SDK Testing Toolbar */
     .sdk-tester-panel {
-      max-width: 1100px;
-      margin: 0 auto 40px;
-      padding: 16px 24px;
-      background: rgba(212, 175, 55, 0.06);
-      border: 1px solid rgba(212, 175, 55, 0.35);
-      border-radius: 14px;
+      max-width: 1200px;
+      margin: 0 auto 30px;
+      padding: 14px 24px;
+      background: rgba(212, 175, 55, 0.05);
+      border: 1px solid rgba(212, 175, 55, 0.25);
+      border-radius: 12px;
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
-      gap: 16px;
+      gap: 14px;
     }
 
     .tester-title {
@@ -192,9 +512,9 @@
       background: rgba(255, 255, 255, 0.08);
       border: 1px solid rgba(212, 175, 55, 0.4);
       color: #fff;
-      padding: 8px 14px;
+      padding: 7px 12px;
       border-radius: 8px;
-      font-size: 12px;
+      font-size: 11px;
       font-weight: 600;
       cursor: pointer;
       transition: all 0.2s;
@@ -299,6 +619,7 @@
     .gallery-thumb:hover {
       opacity: 1;
       border-color: var(--gold-primary);
+      transform: scale(1.05);
     }
 
     .gallery-thumb img {
@@ -308,7 +629,7 @@
     }
 
     .product-info {
-      padding: 20px 20px 24px;
+      padding: 18px 20px;
       display: flex;
       flex-direction: column;
       flex: 1;
@@ -319,14 +640,14 @@
       text-transform: uppercase;
       letter-spacing: 1.5px;
       color: var(--gold-primary);
-      margin-bottom: 6px;
+      margin-bottom: 4px;
     }
 
     .product-title {
       font-family: 'Cormorant Garamond', serif;
       font-size: 20px;
       font-weight: 600;
-      color: #ffffff;
+      line-height: 1.3;
       margin-bottom: 8px;
     }
 
@@ -391,7 +712,6 @@
   <!-- Header Navigation -->
   <header class="navbar">
     <a href="#" class="brand-logo-container">
-      <!-- Icon/Logo (Ignored by SDK scanner heuristics) -->
       <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=80&q=80" alt="Logo"
         class="site-logo logo" data-tryon="false" />
       <span class="brand-name">MAISON LUMINA</span>
@@ -413,18 +733,188 @@
   <section class="hero">
     <span class="hero-tag">High Jewellery Atelier</span>
     <h1>Adorn Yourself with Eternal Radiance</h1>
-    <p>Experience our bespoke fine diamond and precious gemstone collections with instant AI Virtual Try-On before
-      purchase.</p>
+    <p>Seamlessly match the AI Try-On button to any website theme, brand identity, or palette in real time.</p>
   </section>
 
-  <!-- SDK Tester Controls Panel -->
+  <!-- ========================================================== -->
+  <!-- MERCHANT TRY-ON BUTTON CUSTOMIZER STUDIO                   -->
+  <!-- ========================================================== -->
+  <div class="container">
+    <div class="customizer-studio">
+      <div class="studio-header">
+        <div class="studio-title">
+          <span style="font-size: 22px;">🎨</span>
+          <h3>Try-On Button & Brand Customizer Studio</h3>
+          <span class="studio-badge">Live Real-time Sync</span>
+        </div>
+      </div>
+
+      <div class="studio-content">
+        <!-- Controls Column -->
+        <div class="studio-controls-col">
+          <!-- 1. Theme Presets -->
+          <div class="control-group">
+            <span class="control-label">1. Preset Theme Schemes</span>
+            <div class="theme-presets-grid">
+              <button class="preset-btn active" data-theme="gold">👑 Gold Luxury</button>
+              <button class="preset-btn" data-theme="dark">🌑 Midnight Dark</button>
+              <button class="preset-btn" data-theme="light">⚪ Pearl Light</button>
+              <button class="preset-btn" data-theme="glass">🪟 Frosted Glass</button>
+              <button class="preset-btn" data-theme="emerald">💎 Emerald</button>
+              <button class="preset-btn" data-theme="rose">🌸 Rose Gold</button>
+              <button class="preset-btn" data-theme="ocean">🌊 Sapphire Blue</button>
+              <button class="preset-btn" data-theme="minimal">◻️ Minimal</button>
+            </div>
+          </div>
+
+          <!-- 2. Position -->
+          <div class="control-group">
+            <span class="control-label">2. Button Position on Product Card</span>
+            <div class="positions-grid">
+              <button class="pos-btn active" data-pos="bottom-right">Bottom-Right</button>
+              <button class="pos-btn" data-pos="bottom-left">Bottom-Left</button>
+              <button class="pos-btn" data-pos="top-right">Top-Right</button>
+              <button class="pos-btn" data-pos="top-left">Top-Left</button>
+              <button class="pos-btn" data-pos="bottom-center">Bottom-Center</button>
+              <button class="pos-btn" data-pos="top-center">Top-Center</button>
+              <button class="pos-btn" data-pos="center">Center</button>
+            </div>
+          </div>
+
+          <!-- 3. Granular Brand Colors -->
+          <div class="control-group">
+            <span class="control-label">3. Brand Color Customization (Live Overrides)</span>
+            <div class="color-controls-grid">
+              <div class="color-field">
+                <div class="color-field-header">
+                  <span>Background</span>
+                </div>
+                <div class="color-input-row">
+                  <input type="color" id="picker-bg" class="color-picker" value="#141414" />
+                  <input type="text" id="text-bg" class="color-text-input" value="rgba(20,20,20,0.9)" />
+                </div>
+              </div>
+
+              <div class="color-field">
+                <div class="color-field-header">
+                  <span>Text Color</span>
+                </div>
+                <div class="color-input-row">
+                  <input type="color" id="picker-color" class="color-picker" value="#f9f6ee" />
+                  <input type="text" id="text-color" class="color-text-input" value="#f9f6ee" />
+                </div>
+              </div>
+
+              <div class="color-field">
+                <div class="color-field-header">
+                  <span>Border Color</span>
+                </div>
+                <div class="color-input-row">
+                  <input type="color" id="picker-border" class="color-picker" value="#d4af37" />
+                  <input type="text" id="text-border" class="color-text-input" value="1px solid rgba(212,175,55,0.55)" />
+                </div>
+              </div>
+
+              <div class="color-field">
+                <div class="color-field-header">
+                  <span>Hover Background</span>
+                </div>
+                <div class="color-input-row">
+                  <input type="color" id="picker-hover-bg" class="color-picker" value="#2d2616" />
+                  <input type="text" id="text-hover-bg" class="color-text-input" value="rgba(45,38,22,0.98)" />
+                </div>
+              </div>
+
+              <div class="color-field">
+                <div class="color-field-header">
+                  <span>Hover Border</span>
+                </div>
+                <div class="color-input-row">
+                  <input type="color" id="picker-hover-border" class="color-picker" value="#f5d76e" />
+                  <input type="text" id="text-hover-border" class="color-text-input" value="1px solid rgba(245,215,110,0.85)" />
+                </div>
+              </div>
+
+              <div class="color-field">
+                <div class="color-field-header">
+                  <span>Hover Text Color</span>
+                </div>
+                <div class="color-input-row">
+                  <input type="color" id="picker-hover-color" class="color-picker" value="#ffffff" />
+                  <input type="text" id="text-hover-color" class="color-text-input" value="#ffffff" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4. Geometry & Typography -->
+          <div class="control-group">
+            <span class="control-label">4. Geometry, Typography & Icon</span>
+            <div class="geometry-grid">
+              <div class="range-field">
+                <div class="range-field-header">
+                  <span>Border Radius</span>
+                  <span id="label-radius">30px</span>
+                </div>
+                <input type="range" id="slider-radius" class="range-slider" min="0" max="40" value="30" />
+              </div>
+
+              <div class="range-field">
+                <div class="range-field-header">
+                  <span>Font Size</span>
+                  <span id="label-fontsize">13px</span>
+                </div>
+                <input type="range" id="slider-fontsize" class="range-slider" min="10" max="18" value="13" />
+              </div>
+
+              <div class="range-field">
+                <div class="range-field-header">
+                  <span>Button Label Text</span>
+                </div>
+                <input type="text" id="input-button-text" class="text-input-field" value="Try On" />
+              </div>
+
+              <div class="range-field">
+                <div class="range-field-header">
+                  <span>Icon Symbol</span>
+                </div>
+                <select id="select-icon" class="text-input-field">
+                  <option value="✨">✨ Sparkle (Default)</option>
+                  <option value="💎">💎 Diamond</option>
+                  <option value="💍">💍 Ring</option>
+                  <option value="👗">👗 Dress / Fitting</option>
+                  <option value="none">None (Text Only)</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Export Snippet Column -->
+        <div class="studio-export-col">
+          <div class="code-export-card">
+            <div class="export-tabs">
+              <button class="tab-btn active" id="tab-script">Embed Script Tag</button>
+              <button class="tab-btn" id="tab-js">JS SDK Init</button>
+            </div>
+            <pre class="code-preview-area" id="code-output"></pre>
+            <button class="btn-copy-code" id="btn-copy-code">
+              <span>📋</span> Copy Embed Code
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Developer Testing Toolbar -->
   <div class="container">
     <div class="sdk-tester-panel">
       <div class="tester-title">
-        <span>⚙️ SDK Developer & Testing Toolbar:</span>
+        <span>⚙️ Developer Toolbar:</span>
       </div>
       <div class="tester-actions">
-        <button class="btn-test" id="btn-add-dynamic-product">➕ Inject Dynamic Product (Test MutationObserver)</button>
+        <button class="btn-test" id="btn-add-dynamic-product">➕ Inject Dynamic Product</button>
         <button class="btn-test" id="btn-inspect-sdk">📊 Inspect Registered Images</button>
         <button class="btn-test" id="btn-trigger-modal-manual">✨ Open Modal Programmatically</button>
       </div>
@@ -433,11 +923,11 @@
 
   <!-- Products Section -->
   <main class="container">
-    <h2 class="section-title">Signature Collection</h2>
+    <h2 class="section-title">Signature Haute Joaillerie Collection</h2>
 
     <div class="product-grid" id="main-product-grid">
 
-      <!-- Product 1: Solitaire Diamond Necklace (Explicit Tagging) -->
+      <!-- Product 1: Solitaire Diamond Necklace -->
       <article class="product-card" data-product-id="necklace-solitaire-001">
         <div class="product-image-container">
           <span class="product-badge">Haute Joaillerie</span>
@@ -448,55 +938,53 @@
         <div class="product-info">
           <span class="product-category">Necklaces</span>
           <h3 class="product-title">L'Éternité Pear Diamond Pendant</h3>
-          <p class="product-price">$4,850</p>
+          <p class="product-price">$6,800</p>
           <button class="btn-add-cart">Add to Shopping Bag</button>
         </div>
       </article>
 
-      <!-- Product 2: Royal Emerald Drop Earrings (Auto-Discovered) -->
+      <!-- Product 2: Emerald Drop Earrings (Demonstrates Per-Image Theme Override) -->
       <article class="product-card" data-product-id="earrings-emerald-002">
         <div class="product-image-container">
-          <span class="product-badge">Bespoke</span>
+          <span class="product-badge">Per-Product Override</span>
           <img id="img-product-2"
             src="https://images.unsplash.com/photo-1694062045776-f48d9b6de57e?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            alt="Royal Colombian Emerald & Diamond Drop Earrings" data-product-id="earrings-emerald-002" />
+            alt="Colombian Emerald & Diamond Drop Earrings" data-tryon="true" data-product-id="earrings-emerald-002"
+            data-tryon-theme="emerald" data-tryon-button-text="Try Emeralds" />
         </div>
         <div class="product-info">
           <span class="product-category">Earrings</span>
-          <h3 class="product-title">Royal Emerald Cascade Earrings</h3>
-          <p class="product-price">$7,200</p>
+          <h3 class="product-title">Colombian Emerald Cascade Drops</h3>
+          <p class="product-price">$8,250</p>
           <button class="btn-add-cart">Add to Shopping Bag</button>
         </div>
       </article>
 
-      <!-- Product 3: Multi-Image Sapphire Set (Multi-Angle Gallery Demonstration) -->
+      <!-- Product 3: Multi-Image Sapphire Suite with Thumbnails -->
       <article class="product-card" data-product-id="sapphire-suite-003">
         <div class="product-image-container">
-          <span class="product-badge">Suite Collection</span>
-          <img id="img-product-3-main"
+          <span class="product-badge">Multi-Angle Gallery</span>
+          <img id="img-product-3"
             src="https://images.unsplash.com/photo-1694062045776-f48d9b6de57e?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            alt="Ceylon Sapphire & Brilliant Diamond Suite" data-tryon="true" data-product-id="sapphire-suite-003" />
+            alt="Imperial Ceylon Sapphire Necklace" data-product-id="sapphire-suite-003" />
         </div>
-        <!-- Thumbnail Gallery Switcher (Simulates e-commerce multi-image product view) -->
+
         <div class="gallery-thumbnails">
           <div class="gallery-thumb active"
-            onclick="switchProductThumb('img-product-3-main', 'https://unsplash.com/photos/a-woman-wearing-a-gold-necklace-and-earrings-FApOxeT2NEQ', this)">
-            <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=120&q=80"
-              alt="Angle 1" />
+            onclick="switchProductThumb('img-product-3', 'https://images.unsplash.com/photo-1694062045776-f48d9b6de57e?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', this)">
+            <img
+              src="https://images.unsplash.com/photo-1694062045776-f48d9b6de57e?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt="Model View" />
           </div>
           <div class="gallery-thumb"
-            onclick="switchProductThumb('img-product-3-main', 'https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?auto=format&fit=crop&w=800&q=80', this)">
-            <img src="https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?auto=format&fit=crop&w=120&q=80"
-              alt="Angle 2" />
-          </div>
-          <div class="gallery-thumb"
-            onclick="switchProductThumb('img-product-3-main', 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=800&q=80', this)">
-            <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=120&q=80"
-              alt="Close-up" />
+            onclick="switchProductThumb('img-product-3', 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=400&q=80', this)">
+            <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=400&q=80"
+              alt="Jewel Detail" />
           </div>
         </div>
+
         <div class="product-info">
-          <span class="product-category">Suite Set</span>
+          <span class="product-category">High Jewellery Suite</span>
           <h3 class="product-title">Imperial Ceylon Sapphire Suite</h3>
           <p class="product-price">$9,400</p>
           <button class="btn-add-cart">Add to Shopping Bag</button>
@@ -525,13 +1013,13 @@
   <!-- SDK Toast for Visual Feedback -->
   <div id="sdk-toast"></div>
 
-  <!-- Client-Side Demo Scripts for Interactive Testing Toolbar -->
+  <!-- Client-Side Demo Scripts for Interactive Studio -->
   <script>
     function showToast(msg) {
       const t = document.getElementById('sdk-toast');
       t.innerText = msg;
       t.classList.add('show');
-      setTimeout(() => t.classList.remove('show'), 3500);
+      setTimeout(() => t.classList.remove('show'), 3000);
     }
 
     function switchProductThumb(mainImgId, newSrc, thumbEl) {
@@ -543,7 +1031,311 @@
       thumbEl.classList.add('active');
     }
 
-    // Test Button 1: Dynamically Inject a Product into DOM (Tests MutationObserver)
+    // ==========================================================
+    // CUSTOMIZER STUDIO LOGIC & LIVE SYNC
+    // ==========================================================
+    const state = {
+      theme: 'gold',
+      position: 'bottom-right',
+      background: '',
+      color: '',
+      border: '',
+      hoverBackground: '',
+      hoverBorder: '',
+      hoverColor: '',
+      borderRadius: '30px',
+      fontSize: '13px',
+      buttonText: 'Try On',
+      icon: '✨',
+      activeTab: 'script',
+    };
+
+    const PRESET_DEFAULTS = {
+      gold: {
+        bg: 'linear-gradient(135deg, rgba(20,20,20,0.88) 0%, rgba(35,30,20,0.92) 100%)',
+        color: '#f9f6ee',
+        border: '1px solid rgba(212,175,55,0.55)',
+        hoverBg: 'linear-gradient(135deg, rgba(30,28,20,0.95) 0%, rgba(45,38,22,0.98) 100%)',
+        hoverBorder: '1px solid rgba(245,215,110,0.85)',
+        hoverColor: '#ffffff',
+        radius: '30px',
+      },
+      dark: {
+        bg: 'rgba(15,15,18,0.9)',
+        color: '#ffffff',
+        border: '1px solid rgba(255,255,255,0.18)',
+        hoverBg: 'rgba(25,25,30,0.98)',
+        hoverBorder: '1px solid rgba(255,255,255,0.35)',
+        hoverColor: '#ffffff',
+        radius: '30px',
+      },
+      light: {
+        bg: 'rgba(255,255,255,0.95)',
+        color: '#1a1a1a',
+        border: '1px solid rgba(212,175,55,0.45)',
+        hoverBg: '#ffffff',
+        hoverBorder: '1px solid rgba(212,175,55,0.8)',
+        hoverColor: '#111111',
+        radius: '30px',
+      },
+      glass: {
+        bg: 'rgba(255,255,255,0.15)',
+        color: '#ffffff',
+        border: '1px solid rgba(255,255,255,0.35)',
+        hoverBg: 'rgba(255,255,255,0.25)',
+        hoverBorder: '1px solid rgba(255,255,255,0.6)',
+        hoverColor: '#ffffff',
+        radius: '30px',
+      },
+      emerald: {
+        bg: 'linear-gradient(135deg, rgba(6,44,34,0.92) 0%, rgba(10,60,46,0.95) 100%)',
+        color: '#ecfdf5',
+        border: '1px solid rgba(52,211,153,0.5)',
+        hoverBg: 'linear-gradient(135deg, rgba(8,55,42,0.96) 0%, rgba(16,80,62,0.98) 100%)',
+        hoverBorder: '1px solid rgba(110,231,183,0.8)',
+        hoverColor: '#ffffff',
+        radius: '30px',
+      },
+      rose: {
+        bg: 'linear-gradient(135deg, rgba(45,15,25,0.9) 0%, rgba(65,22,35,0.94) 100%)',
+        color: '#fff1f2',
+        border: '1px solid rgba(251,113,133,0.5)',
+        hoverBg: 'linear-gradient(135deg, rgba(58,20,32,0.95) 0%, rgba(80,28,44,0.98) 100%)',
+        hoverBorder: '1px solid rgba(253,164,175,0.8)',
+        hoverColor: '#ffffff',
+        radius: '30px',
+      },
+      ocean: {
+        bg: 'linear-gradient(135deg, rgba(12,30,55,0.92) 0%, rgba(18,45,80,0.95) 100%)',
+        color: '#f0f9ff',
+        border: '1px solid rgba(56,189,248,0.5)',
+        hoverBg: 'linear-gradient(135deg, rgba(16,40,72,0.96) 0%, rgba(24,60,105,0.98) 100%)',
+        hoverBorder: '1px solid rgba(125,211,252,0.8)',
+        hoverColor: '#ffffff',
+        radius: '30px',
+      },
+      minimal: {
+        bg: '#111111',
+        color: '#ffffff',
+        border: '1px solid #333333',
+        hoverBg: '#000000',
+        hoverBorder: '1px solid #555555',
+        hoverColor: '#ffffff',
+        radius: '6px',
+      },
+    };
+
+    function updateLiveButton() {
+      if (!window.TryOnSDK) return;
+
+      const styleObj = {
+        background: state.background || undefined,
+        color: state.color || undefined,
+        border: state.border || undefined,
+        hoverBackground: state.hoverBackground || undefined,
+        hoverBorder: state.hoverBorder || undefined,
+        hoverColor: state.hoverColor || undefined,
+        borderRadius: state.borderRadius || undefined,
+        fontSize: state.fontSize || undefined,
+        icon: state.icon === 'none' ? false : state.icon,
+      };
+
+      window.TryOnSDK.updateConfig({
+        buttonTheme: state.theme,
+        buttonPosition: state.position,
+        buttonText: state.buttonText,
+        buttonIcon: state.icon === 'none' ? false : state.icon,
+        buttonStyle: styleObj,
+      });
+
+      renderCodePreview();
+    }
+
+    function renderCodePreview() {
+      const codeOutput = document.getElementById('code-output');
+      if (state.activeTab === 'script') {
+        let attrs = `  src="https://cdn.tryon.ai/tryon.js"\n  data-site-key="pk_test_luxury_jewels_778"\n  data-theme="${state.theme}"\n  data-position="${state.position}"\n  data-button-text="${state.buttonText}"`;
+        if (state.icon && state.icon !== '✨') {
+          attrs += `\n  data-button-icon="${state.icon}"`;
+        }
+        if (state.background) {
+          attrs += `\n  data-button-bg="${state.background}"`;
+        }
+        if (state.color) {
+          attrs += `\n  data-button-color="${state.color}"`;
+        }
+        if (state.border) {
+          attrs += `\n  data-button-border="${state.border}"`;
+        }
+        if (state.borderRadius && state.borderRadius !== '30px') {
+          attrs += `\n  data-button-radius="${state.borderRadius}"`;
+        }
+        if (state.hoverBackground) {
+          attrs += `\n  data-button-hover-bg="${state.hoverBackground}"`;
+        }
+        if (state.hoverBorder) {
+          attrs += `\n  data-button-hover-border="${state.hoverBorder}"`;
+        }
+        if (state.fontSize && state.fontSize !== '13px') {
+          attrs += `\n  data-button-font-size="${state.fontSize}"`;
+        }
+
+        codeOutput.textContent = `<script\n${attrs}\n><\/script>`;
+      } else {
+        const configObj = {
+          siteKey: 'pk_test_luxury_jewels_778',
+          buttonTheme: state.theme,
+          buttonPosition: state.position,
+          buttonText: state.buttonText,
+          buttonIcon: state.icon === 'none' ? false : state.icon,
+        };
+
+        const customStyles = {};
+        if (state.background) customStyles.background = state.background;
+        if (state.color) customStyles.color = state.color;
+        if (state.border) customStyles.border = state.border;
+        if (state.borderRadius && state.borderRadius !== '30px') customStyles.borderRadius = state.borderRadius;
+        if (state.hoverBackground) customStyles.hoverBackground = state.hoverBackground;
+        if (state.hoverBorder) customStyles.hoverBorder = state.hoverBorder;
+        if (state.fontSize && state.fontSize !== '13px') customStyles.fontSize = state.fontSize;
+
+        if (Object.keys(customStyles).length > 0) {
+          configObj.buttonStyle = customStyles;
+        }
+
+        codeOutput.textContent = `TryOnSDK.init(${JSON.stringify(configObj, null, 2)});`;
+      }
+    }
+
+    // Theme presets click listener
+    document.querySelectorAll('.preset-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.preset-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const theme = btn.dataset.theme;
+        state.theme = theme;
+
+        const def = PRESET_DEFAULTS[theme] || PRESET_DEFAULTS.gold;
+        state.background = '';
+        state.color = '';
+        state.border = '';
+        state.hoverBackground = '';
+        state.hoverBorder = '';
+        state.hoverColor = '';
+        state.borderRadius = def.radius;
+
+        document.getElementById('text-bg').value = def.bg;
+        document.getElementById('text-color').value = def.color;
+        document.getElementById('text-border').value = def.border;
+        document.getElementById('text-hover-bg').value = def.hoverBg;
+        document.getElementById('text-hover-border').value = def.hoverBorder;
+        document.getElementById('text-hover-color').value = def.hoverColor || '#ffffff';
+        document.getElementById('slider-radius').value = parseInt(def.radius, 10) || 30;
+        document.getElementById('label-radius').innerText = def.radius;
+
+        updateLiveButton();
+        showToast(`Applied ${theme.toUpperCase()} preset theme.`);
+      });
+    });
+
+    // Position buttons
+    document.querySelectorAll('.pos-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.pos-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        state.position = btn.dataset.pos;
+        updateLiveButton();
+      });
+    });
+
+    // Color inputs
+    const linkColorInput = (pickerId, textId, stateKey) => {
+      const picker = document.getElementById(pickerId);
+      const textInput = document.getElementById(textId);
+
+      picker.addEventListener('input', (e) => {
+        textInput.value = e.target.value;
+        state[stateKey] = e.target.value;
+        updateLiveButton();
+      });
+
+      textInput.addEventListener('input', (e) => {
+        state[stateKey] = e.target.value;
+        if (e.target.value.startsWith('#') && (e.target.value.length === 7 || e.target.value.length === 4)) {
+          picker.value = e.target.value;
+        }
+        updateLiveButton();
+      });
+    };
+
+    linkColorInput('picker-bg', 'text-bg', 'background');
+    linkColorInput('picker-color', 'text-color', 'color');
+    linkColorInput('picker-border', 'text-border', 'border');
+    linkColorInput('picker-hover-bg', 'text-hover-bg', 'hoverBackground');
+    linkColorInput('picker-hover-border', 'text-hover-border', 'hoverBorder');
+    linkColorInput('picker-hover-color', 'text-hover-color', 'hoverColor');
+
+    // Radius slider
+    const radiusSlider = document.getElementById('slider-radius');
+    const radiusLabel = document.getElementById('label-radius');
+    radiusSlider.addEventListener('input', (e) => {
+      const val = `${e.target.value}px`;
+      radiusLabel.innerText = val;
+      state.borderRadius = val;
+      updateLiveButton();
+    });
+
+    // Font size slider
+    const fontSizeSlider = document.getElementById('slider-fontsize');
+    const fontSizeLabel = document.getElementById('label-fontsize');
+    fontSizeSlider.addEventListener('input', (e) => {
+      const val = `${e.target.value}px`;
+      fontSizeLabel.innerText = val;
+      state.fontSize = val;
+      updateLiveButton();
+    });
+
+    // Text & icon inputs
+    document.getElementById('input-button-text').addEventListener('input', (e) => {
+      state.buttonText = e.target.value || 'Try On';
+      updateLiveButton();
+    });
+
+    document.getElementById('select-icon').addEventListener('change', (e) => {
+      state.icon = e.target.value;
+      updateLiveButton();
+    });
+
+    // Tab buttons
+    const tabScript = document.getElementById('tab-script');
+    const tabJs = document.getElementById('tab-js');
+    tabScript.addEventListener('click', () => {
+      tabScript.classList.add('active');
+      tabJs.classList.remove('active');
+      state.activeTab = 'script';
+      renderCodePreview();
+    });
+    tabJs.addEventListener('click', () => {
+      tabJs.classList.add('active');
+      tabScript.classList.remove('active');
+      state.activeTab = 'js';
+      renderCodePreview();
+    });
+
+    // Copy code button
+    document.getElementById('btn-copy-code').addEventListener('click', () => {
+      const code = document.getElementById('code-output').textContent;
+      navigator.clipboard.writeText(code).then(() => {
+        showToast('📋 Configuration code copied to clipboard!');
+      });
+    });
+
+    // Initial render of preview
+    renderCodePreview();
+
+    // ==========================================================
+    // DEVELOPER TOOLBAR ACTIONS
+    // ==========================================================
     let dynamicCount = 0;
     document.getElementById('btn-add-dynamic-product').addEventListener('click', () => {
       dynamicCount++;
@@ -553,7 +1345,7 @@
       newCard.dataset.productId = `dynamic-item-${dynamicCount}`;
       newCard.innerHTML = `
         <div class="product-image-container">
-          <span class="product-badge">Dynamic SPA Ingestion</span>
+          <span class="product-badge">Dynamic Card</span>
           <img
             src="https://images.unsplash.com/photo-1598560917505-59a3ad559071?auto=format&fit=crop&w=800&q=80"
             alt="Radiant Pavé Diamond Bangle #${dynamicCount}"
@@ -571,7 +1363,6 @@
       showToast(`✨ Dynamic product #${dynamicCount} injected! MutationObserver will attach Try-On button.`);
     });
 
-    // Test Button 2: Inspect SDK Image Registry
     document.getElementById('btn-inspect-sdk').addEventListener('click', () => {
       if (window.TryOnSDK) {
         const images = window.TryOnSDK.getDiscoveredImages();
@@ -582,7 +1373,6 @@
       }
     });
 
-    // Test Button 3: Programmatic Modal Open
     document.getElementById('btn-trigger-modal-manual').addEventListener('click', () => {
       const firstImg = document.getElementById('img-product-1');
       if (window.TryOnSDK && firstImg) {
@@ -590,7 +1380,6 @@
       }
     });
 
-    // Listen to TryOnSDK Events for demonstration
     window.addEventListener('DOMContentLoaded', () => {
       if (window.TryOnSDK) {
         window.TryOnSDK.on('tryon:complete', (data) => {
@@ -609,7 +1398,7 @@
   <script src="./dist/tryon.js" data-api-url="https://9rk8l0m9-8000.inc1.devtunnels.ms"
     data-site-key="pk_test_luxury_jewels_778" data-button-text="✨ Try On" data-theme="gold" data-mock-mode="false"
     data-debug="true">
-    </script>
+  </script>
 
 </body>
 

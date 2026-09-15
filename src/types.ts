@@ -2,8 +2,69 @@
  * Jewellery AI Try-On SDK Types
  */
 
-export type ButtonPosition = 'bottom-right' | 'bottom-left' | 'top-right' | 'top-left' | 'bottom-center' | 'inline';
-export type ButtonTheme = 'dark' | 'light' | 'gold' | 'glass';
+export type ButtonPosition =
+  | 'bottom-right'
+  | 'bottom-left'
+  | 'top-right'
+  | 'top-left'
+  | 'bottom-center'
+  | 'top-center'
+  | 'center'
+  | 'inline';
+
+export type ButtonTheme =
+  | 'gold'
+  | 'dark'
+  | 'light'
+  | 'glass'
+  | 'emerald'
+  | 'rose'
+  | 'ocean'
+  | 'minimal'
+  | 'custom';
+
+export interface ButtonCustomStyle {
+  /** Background color or gradient (e.g. '#2563eb' or 'linear-gradient(135deg, #1e3a8a, #3b82f6)') */
+  background?: string;
+  /** Text color (e.g. '#ffffff') */
+  color?: string;
+  /** Border style or color (e.g. '1px solid #3b82f6' or 'none') */
+  border?: string;
+  /** Border radius in px or % (e.g. '30px', '8px', '4px', '0px') */
+  borderRadius?: string;
+  /** Hover background color or gradient */
+  hoverBackground?: string;
+  /** Hover text color */
+  hoverColor?: string;
+  /** Hover border style or color */
+  hoverBorder?: string;
+  /** Box shadow or glow (e.g. '0 4px 20px rgba(0, 0, 0, 0.25)') */
+  boxShadow?: string;
+  /** Hover box shadow (e.g. '0 6px 24px rgba(37, 99, 235, 0.4)') */
+  hoverBoxShadow?: string;
+  /** Font family (e.g. 'Montserrat, sans-serif' or 'inherit') */
+  fontFamily?: string;
+  /** Font size in px or em (e.g. '13px', '14px') */
+  fontSize?: string;
+  /** Font weight (e.g. '500', '600', '700') */
+  fontWeight?: string | number;
+  /** Letter spacing (e.g. '0.5px', 'normal') */
+  letterSpacing?: string;
+  /** Button padding (e.g. '7px 14px', '8px 16px') */
+  padding?: string;
+  /** Backdrop filter blur (e.g. 'blur(10px)' or 'none') */
+  backdropFilter?: string;
+  /** Custom icon or emoji (e.g. '✨', '💎', 'none', or false to disable) */
+  icon?: string | boolean;
+  /** Shimmer animation overlay (true | false) */
+  shimmer?: boolean;
+  /** Custom offset horizontal from edge in px (e.g. '12px') */
+  offsetX?: string;
+  /** Custom offset vertical from edge in px (e.g. '12px') */
+  offsetY?: string;
+  /** Custom raw CSS rules injected inside Shadow DOM */
+  customCss?: string;
+}
 
 export interface SDKConfig {
   /** Merchant Site Key (e.g. pk_test_xxx) */
@@ -12,10 +73,14 @@ export interface SDKConfig {
   apiUrl: string;
   /** Text displayed on the Try-On button */
   buttonText: string;
+  /** Icon displayed on the Try-On button (e.g. '✨', '💎', 'none') */
+  buttonIcon?: string | boolean;
   /** Positioning of the Try-On button overlay */
   buttonPosition: ButtonPosition;
   /** Theme styling for the button */
   buttonTheme: ButtonTheme;
+  /** Granular custom styling for button */
+  buttonStyle?: ButtonCustomStyle;
   /** Minimum width for candidate product images in pixels */
   minImageWidth: number;
   /** Minimum height for candidate product images in pixels */
